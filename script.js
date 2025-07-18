@@ -86,6 +86,8 @@ function mostraSezione(sezione) {
     caricaOspiti();
   } else if (sezione === "checkin") {
     mostraCheckInOggi();
+  } else if (sezione === "checkout") {
+    mostraCheckOutOggi();
   } else {
     document.querySelector(".main-content").innerHTML = `
       <h1>${sezione.toUpperCase()}</h1>
@@ -93,6 +95,7 @@ function mostraSezione(sezione) {
     `;
   }
 }
+
 
 
 // Carica ospiti al primo avvio
@@ -111,6 +114,27 @@ function mostraCheckInOggi() {
   }
 
   ospitiOggi.forEach((ospite) => {
+    const card = document.createElement("div");
+    card.className = "guest-card";
+    card.innerHTML = `<strong>${ospite.nome} ${ospite.cognome}</strong><br>Appartamento: ${ospite.appartamento}`;
+    card.onclick = () => mostraDettagli(ospite);
+    container.appendChild(card);
+  });
+}
+
+function mostraCheckOutOggi() {
+  const oggi = new Date().toISOString().split("T")[0];
+  const ospitiOut = ospiti.filter(o => o.checkOut === oggi);
+  const container = document.querySelector(".main-content");
+
+  container.innerHTML = `<h1>Check-out di oggi</h1>`;
+
+  if (ospitiOut.length === 0) {
+    container.innerHTML += `<p>Nessun ospite in partenza oggi.</p>`;
+    return;
+  }
+
+  ospitiOut.forEach((ospite) => {
     const card = document.createElement("div");
     card.className = "guest-card";
     card.innerHTML = `<strong>${ospite.nome} ${ospite.cognome}</strong><br>Appartamento: ${ospite.appartamento}`;
