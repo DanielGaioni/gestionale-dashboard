@@ -151,3 +151,5 @@ function mostraDettagliOspite(ospite) {
     </div>
   `;
 }
+
+window.onload = () => mostraSezione('ospiti');
