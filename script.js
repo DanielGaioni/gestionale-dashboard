@@ -78,23 +78,19 @@ function mostraDettagli(ospite) {
 
 // Gestione cambio sezione (solo ospiti attivo per ora)
 function mostraSezione(sezione) {
-  if (sezione === "ospiti") {
-    document.querySelector(".main-content").innerHTML = `
-      <h1>Dashboard Ospiti</h1>
-      <div id="guest-list">Caricamento ospiti...</div>
-    `;
-    caricaOspiti();
-  } else if (sezione === "checkin") {
-    mostraCheckInOggi();
-  } else if (sezione === "checkout") {
-    mostraCheckOutOggi();
-  } else {
-    document.querySelector(".main-content").innerHTML = `
-      <h1>${sezione.toUpperCase()}</h1>
-      <p>Sezione in sviluppo...</p>
-    `;
-  }
+if (sezione === "ospiti") {
+  const ordinati = ospiti.sort((a, b) => a.checkin.localeCompare(b.checkin) || a.nome.localeCompare(b.nome));
+  ordinati.forEach(o => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<strong>${o.nome}</strong><br>Check-in: ${o.checkin}`;
+    div.addEventListener("click", () => {
+      mostraDettagliOspite(o);
+    });
+    contenuto.appendChild(div);
+  });
 }
+
 
 
 
@@ -141,4 +137,17 @@ function mostraCheckOutOggi() {
     card.onclick = () => mostraDettagli(ospite);
     container.appendChild(card);
   });
+}
+
+function mostraDettagliOspite(ospite) {
+  const contenuto = document.getElementById("contenuto");
+  contenuto.innerHTML = `
+    <div class="card">
+      <h2>${ospite.nome}</h2>
+      <p><strong>Check-in:</strong> ${ospite.checkin}</p>
+      <p><strong>Check-out:</strong> ${ospite.checkout}</p>
+      <p><strong>Appartamento:</strong> ${ospite.appartamento}</p>
+      <button onclick="mostraSezione('ospiti')">← Torna alla lista</button>
+    </div>
+  `;
 }

@@ -2,25 +2,26 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard Ospiti</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <aside class="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar">
       <h2>Menu</h2>
-      <ul>
-        <li onclick="mostraSezione('ospiti')">Ospiti</li>
-        <li onclick="mostraSezione('checkin')">Check-in di oggi</li>
-        <li onclick="mostraSezione('checkout')">Check-out di oggi</li>
-        <li onclick="mostraSezione('appartamenti')">Appartamenti</li>
-      </ul>
-    </aside>
+      <button onclick="mostraSezione('ospiti')">Ospiti</button>
+      <button onclick="mostraSezione('checkin')">Check-in di oggi</button>
+      <button onclick="mostraSezione('checkout')">Check-out di oggi</button>
+      <button onclick="mostraSezione('appartamenti')">Appartamenti</button>
+    </div>
 
-    <main class="main-content">
+    <!-- Contenuto principale -->
+    <div class="main-content">
       <h1>Dashboard Ospiti</h1>
-      <div id="guest-list">Caricamento ospiti...</div>
-    </main>
+      <div id="contenuto"></div>
+    </div>
   </div>
 
   <script src="script.js"></script>
