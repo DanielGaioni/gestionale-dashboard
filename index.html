@@ -1,28 +1,83 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Ospiti</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Vacanza</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <h2>Menu</h2>
-      <button onclick="mostraSezione('ospiti')">Ospiti</button>
-      <button onclick="mostraSezione('checkin')">Check-in di oggi</button>
-      <button onclick="mostraSezione('checkout')">Check-out di oggi</button>
-      <button onclick="mostraSezione('appartamenti')">Appartamenti</button>
+  <header>
+    <nav>
+      <h1>CaseVacanza</h1>
+      <ul>
+        <li><a href="#case">Case Vacanza</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h2>La tua casa vacanza ideale ti aspetta</h2>
+      <p>Scopri destinazioni uniche e servizi su misura per te.</p>
+      <a class="cta" href="#case">Scopri le case</a>
     </div>
+  </header>
 
-    <!-- Contenuto principale -->
-    <div class="main-content">
-      <h1>Dashboard Ospiti</h1>
-      <div id="contenuto"></div>
-    </div>
-  </div>
+  <main>
+    <section id="case" class="section">
+      <h2>Le nostre Case Vacanza</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=1" alt="Casa sul mare" />
+          <h3>Casa sul mare</h3>
+          <p>Vista mozzafiato e accesso diretto alla spiaggia.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=2" alt="Chalet di montagna" />
+          <h3>Chalet di montagna</h3>
+          <p>Rilassati tra i boschi e la neve.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=3" alt="Villa con piscina" />
+          <h3>Villa con piscina</h3>
+          <p>Ideale per famiglie numerose e gruppi di amici.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi" class="section light">
+      <h2>Servizi Offerti</h2>
+      <ul class="services">
+        <li>Wi-Fi gratuito</li>
+        <li>Pulizia professionale</li>
+        <li>Assistenza 24/7</li>
+        <li>Transfer da e per l'aeroporto</li>
+        <li>Piscina e area benessere</li>
+      </ul>
+    </section>
+
+    <section id="recensioni" class="section">
+      <h2>Le vostre Recensioni</h2>
+      <div class="reviews">
+        <div class="review">
+          <p class="rating">⭐ 4.8/5</p>
+          <p>"Esperienza fantastica! Servizio impeccabile e casa splendida." – Marco</p>
+        </div>
+        <div class="review">
+          <p class="rating">⭐ 4.9/5</p>
+          <p>"Ci siamo sentiti come a casa. Torneremo sicuramente!" – Laura</p>
+        </div>
+        <div class="review">
+          <p class="rating">⭐ 5/5</p>
+          <p>"La miglior vacanza di sempre, tutto perfetto." – Giulia</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CaseVacanza. Tutti i diritti riservati.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
